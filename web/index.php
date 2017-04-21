@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Language Quiz</title>
-    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97391058-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
    
     <div class="container">
         <div class="page-header">
         <h1>Language Quiz</h1>
         <h3>Learn all about the programming languages before you decide to take on the <strong>Language Quiz</strong></h3>
     </div>
-		<!-- Hook on the controller for this view and specify when to show it using ng-hide -->
+    <!-- Hook on the controller for this view and specify when to show it using ng-hide -->
         <div ng-controller="listCtrl as list" ng-hide="list.quizMetrics.quizActive || list.quizMetrics.resultsActive">
-        	<!-- top search bar with start quiz button using bootstrap -->
+          <!-- top search bar with start quiz button using bootstrap -->
             <form class="form-inline well well-sm clearfix">
-            <div class="row">
-            <div class="col-md-6">
                 <div class="input-group">
              <div class="input-group-btn">
              <button type="button" class="btn"><span class="glyphicon glyphicon-search"></span></button>
@@ -33,29 +41,20 @@
                     ng-model="list.search"
                     id="search">
              </div>
-            </div>
-            <div class="col-md-6">
-                 <button class="btn btn-warning pull-right"
+                <button class="btn btn-warning pull-right"
                     ng-click="list.activateQuiz()">
                     <strong>Start Quiz</strong>
-                </button> 
-            </div>
-                 
-             
-              
-            </div>
+                </button>
             </form>
-            
-           
             <!-- row to contain the list of turtles -->
             <div class="row">
       
                 <div class="col-sm-6" ng-repeat="language in list.data | filter:list.search">
-                	<!-- using a bootstrap well to style -->
+                  <!-- using a bootstrap well to style -->
                     <div class="well well-sm">
                         <div class="row">
                             <div class="col-md-6">
-                            	<!-- ng-src instead of src to allow correct functionality with angular -->
+                              <!-- ng-src instead of src to allow correct functionality with angular -->
                                 <img ng-src="{{language.image_url}}" 
                                     class="img-rounded img-responsive well-image" style="width: 200px;height: 200px;">
                             </div>
@@ -73,7 +72,7 @@
                 </div><!-- col-xs-6 -->
             </div>
 
-			<!-- the markup for the modal -->
+      <!-- the markup for the modal -->
             <div class="modal" id="language-info">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -83,7 +82,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-xs-6 col-xs-offset-4" style="width: 200px;height: 200px;">
-                                	<!-- ng-src used again instead of src -->
+                                  <!-- ng-src used again instead of src -->
                                     <img ng-src="{{list.activeLanguage.image_url}}" class="img-rounded img-responsive" >
                                 </div>
                             </div>
@@ -114,7 +113,7 @@
                             ng-repeat="question in quiz.dataService.quizQuestions"
                             ng-class="{'btn-info': question.selected !== null, 'btn-danger': question.selected === null}" 
                             ng-click="quiz.setActiveQuestion($index)">
-	                  
+                    
                             <span class="glyphicon"
                                 ng-class="{'glyphicon-pencil': question.selected !== null, 'glyphicon-question-sign': question.selected === null}"></span>
                         </button>
@@ -161,7 +160,7 @@
                                     </h4>
                                 </div>
                             </div>
-		           
+               
                             <div class="row"
                                 ng-if="quiz.dataService.quizQuestions[quiz.activeQuestion].type === 'image'">
                                 <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
@@ -194,7 +193,7 @@
             </div><!-- question row -->
         </div><!-- quiz controller -->
 
-		<!-- letting angular know which controller to use for this view and when to show the view using ng-show -->
+    <!-- letting angular know which controller to use for this view and when to show the view using ng-show -->
         <div ng-controller="resultsCtrl as results" ng-show="results.quizMetrics.resultsActive">
            <div class="row">
                <div class="col-xs-8">
@@ -205,7 +204,7 @@
                            ng-class="{'btn-success': question.correct, 'btn-danger': !question.correct}"
                            ng-click="results.setActiveQuestion($index)">
                             <!-- display glyphicons -->
-                        	<!-- ng-class is utilsed again to style the glyphicons conditionally -->
+                          <!-- ng-class is utilsed again to style the glyphicons conditionally -->
                             <span class="glyphicon"
                                 ng-class="{'glyphicon-ok': question.correct, 'glyphicon-remove': !question.correct}"></span>
                        </button>
@@ -230,10 +229,10 @@
                </div>
            </div><!-- row -->
 
-			<!-- display the score and percentage to the user -->
+      <!-- display the score and percentage to the user -->
            <div class="row">
                <div class="col-xs-12 top-buffer">
-               		<!-- the score is displayed using simple angular expressions -->
+                  <!-- the score is displayed using simple angular expressions -->
                     <h2>You Scored {{results.quizMetrics.numCorrect}} / {{results.dataService.quizQuestions.length}}</h2>
                     
                     <h2><strong>{{results.calculatePerc() | number:2}}%</strong></h2>
@@ -279,7 +278,7 @@
                <button class="btn btn-primary btn-lg" ng-click="results.reset()">Go Back</button>
            </div>
         </div>
-        <br>
+
     <div class="panel panel-footer" style="text-align: center;">
         <h4>Build with <span class="glyphicon glyphicon-heart"></span> by <a href="https://github.com/Satyam-Bhalla" target="_blank" style="color: black;"><strong>Satyam</strong></a></h4>
     </div>

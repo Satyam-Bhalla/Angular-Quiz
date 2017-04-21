@@ -25,6 +25,7 @@
     var quizQuestions = [
             {
                 type: "text",
+                complanguage: "c", 
                 text: "In C language,What is the correct value to return to the operating system upon the successful completion of a program?",
                 possibilities: [
                     {
@@ -46,6 +47,7 @@
             },
             {
                 type: "text",
+                complanguage: "c",
                 text: "What is the only function all C programs must contain?",
                 possibilities: [
                     {
@@ -67,6 +69,7 @@
             },
             {
                 type: "text",
+                complanguage: "c",
                 text: " Which of the following is the correct operator to compare two variables?",
                 possibilities: [
                     {
@@ -88,6 +91,7 @@
             },
             {
                 type: "text",
+                complanguage: "python",
                 text: "In Python,Which of the following statements create a dictionary?",
                 possibilities: [
                     {
@@ -109,6 +113,7 @@
             },
             {
                 type: "text",
+                complanguage: "python",
                 text: "Which module in Python supports regular expressions?",
                 possibilities: [
                     {
@@ -130,7 +135,8 @@
             },
             {
                 type: "text",
-                text: "Which keyword is use for function?",
+                complanguage: "python",
+                text: "Which keyword is use for function in Python?",
                 possibilities: [
                     {
                     answer: "Fun"
@@ -151,6 +157,7 @@
             },
             {
                 type: "text",
+                complanguage: "c++",
                 text: "In C++,Which is the storage specifier used to modify the member variable even though the class object is a constant object?",
                 possibilities: [
                     {
@@ -172,6 +179,7 @@
             },
             {
                 type: "text",
+                complanguage: "c++",
                 text: "In C++,With respective to streams >> (operator) is called as",
                 possibilities: [
                     {
@@ -193,6 +201,7 @@
             },
             {
                 type: "text",
+                complanguage: "c++",
                 text: "In C++, An exception is __",
                 possibilities: [
                     {
@@ -214,6 +223,7 @@
             },
             {
                 type: "text",
+                complanguage: "php",
                 text: "PHP server scripts are surrounded by delimiters, which?",
                 possibilities: [
                     {
@@ -235,6 +245,7 @@
             },
             {
                 type: "text",
+                complanguage: "php",
                 text: "All variables in PHP start with which symbol?",
                 possibilities: [
                     {
@@ -256,6 +267,7 @@
             },
             {
                 type: "text",
+                complanguage: "javascript",
                 text: "Inside which HTML element do we put the JavaScript?",
                 possibilities: [
                     {
@@ -277,7 +289,8 @@
             },
             {
                 type: "text",
-                text: "How do you write 'Hello World' in an alert box?",
+                complanguage: "javascript",
+                text: "How do you write 'Hello World' in an alert box using Javascript?",
                 possibilities: [
                     {
                     answer: "msg('Hello World');"
@@ -298,6 +311,7 @@
             },
             {
                 type: "text",
+                complanguage: "java",
                 text: "In java,Which keyword is used by method to refer to the object that invoked it?",
                 possibilities: [
                     {
@@ -319,6 +333,7 @@
             },
             {
                 type: "text",
+                complanguage: "java",
                 text: "In Java,Which of these tranfer protocol must be used so that URL can be accessed by URLConnection class object?",
                 possibilities: [
                     {
